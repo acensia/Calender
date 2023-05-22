@@ -1,0 +1,7 @@
+.dateSwipe {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  justify-content: center; /* Horizontally center items */
+  align-items: center;
+}
