@@ -33,6 +33,9 @@ function Works() {
       [month, week] = dateParser(today);
       setMonth(month);
       setWeek(week);
+      e.target.parentNode.childNodes.forEach((com)=>{
+        if(com)com.style.height = "1.5vw";
+      })
       setTimeout(() => {
         setblock(false);
       }, 250);
@@ -44,7 +47,10 @@ function Works() {
         <button onClick={clicked} disabled={block}>
           ◁
         </button>
-        <TextTransition springConfig={presets.wobbly}>{month_}</TextTransition>
+        <TextTransition springConfig={presets.wobbly}
+        style={{
+          height: "1vw"
+        }}>{month_}</TextTransition>
         <text>월</text>
         <TextTransition springConfig={presets.wobbly}>{week_}</TextTransition>
         <text>주차</text>
