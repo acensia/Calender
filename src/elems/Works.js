@@ -1,6 +1,6 @@
 import TextTransition, { presets } from "react-text-transition";
-import React from "react";
-import { useEffect } from "react";
+import React, { useState } from "react";
+import { useEffect, useRef } from "react";
 import "./elems.css";
 import { click } from "@testing-library/user-event/dist/click";
 
@@ -23,24 +23,37 @@ function dateParser(d) {
 ///////////////////////////////////////////////
 
 function List() {
+  const [mems, setMems] = useState([]);
+  const lists = useRef();
+
   let arr = ["mem1", "mem2"];
   let arr2 = ["Say Hi", "Say Bon jour"];
 
+
+  setMems(arr);
+  function addMem(){
+    lists.
+  }
+
+
   return (
     <div className="list">
-      <ul>
+      <ul ref={lists}>
         {arr.map((name, idx) => {
           return (
             <div className="work">
-              <text key={idx}>{name}</text>
+              <div className="memName">{name}</div>
               <div className="workBox">{arr2[idx]}</div>
               <div className="workSelect">
-                <button></button>
-                <button></button>
+                <button className="workSelector"></button>
+                <button className="workSelector"></button>
               </div>
             </div>
           );
         })}
+        <div className="work">
+          <div className="memName addMem" onClick={addMem}>+</div>
+        </div>
       </ul>
     </div>
   );
@@ -52,6 +65,7 @@ function Week() {
   const [month_, setMonth] = React.useState(month);
   const [week_, setWeek] = React.useState(week);
   const [block, setblock] = React.useState(false);
+  const Texts = useRef();
 
   function clicked(e) {
     if (block != true) {
@@ -64,8 +78,9 @@ function Week() {
       [month, week] = dateParser(today);
       setMonth(month);
       setWeek(week);
-      e.target.parentNode.childNodes.forEach((com) => {
-        if (com.tagName != "BUTTON") com.style.height = "1.5vw";
+      Texts.current.childNodes.forEach((com) => {
+        com.style.height = "1.5vw";
+        console.log("clicked");
       });
       setTimeout(() => {
         setblock(false);
@@ -78,22 +93,28 @@ function Week() {
       <button onClick={clicked} disabled={block}>
         ◁
       </button>
-      <TextTransition
-        springConfig={presets.wobbly}
-        style={{
-          height: "1vw",
-        }}>
-        {month_}
-      </TextTransition>
-      <text>월</text>
-      <TextTransition
-        springConfig={presets.wobbly}
-        style={{
-          height: "1vw",
-        }}>
-        {week_}
-      </TextTransition>
-      <text>주차</text>
+      <div className="dateSwipe dateShow" ref={Texts}>
+        <TextTransition
+          delay={250}
+          springConfig={presets.wobbly}
+          style={{
+            height: "1vw",
+          }}
+          className="monNo">
+          {month_}
+        </TextTransition>
+        <text className="monTx">월</text>
+        <TextTransition
+          springConfig={presets.wobbly}
+          delay={250}
+          style={{
+            height: "1vw",
+          }}
+          className="weekNo">
+          {week_}
+        </TextTransition>
+        <text className="weekTx">주차</text>
+      </div>
       <button onClick={clicked} disabled={block}>
         ▷
       </button>
