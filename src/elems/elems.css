@@ -5,6 +5,19 @@
   align-items: center;
 }
 
+.weekNo {
+  flex: 1;
+}
+.weekTx {
+  flex: 1;
+}
+.monNo {
+  flex: 1;
+}
+.monTx {
+  flex: 1;
+}
+
 button {
   width: 2vw;
   height: 3vh;

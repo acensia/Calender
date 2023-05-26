@@ -1,6 +1,8 @@
 import TextTransition, { presets } from "react-text-transition";
 import React from "react";
+import { useEffect } from "react";
 import "./elems.css";
+import { click } from "@testing-library/user-event/dist/click";
 
 let today = new Date();
 let [month, week] = dateParser(today);
@@ -70,6 +72,7 @@ function Week() {
       }, 250);
     }
   }
+
   return (
     <div className="dateSwipe">
       <button onClick={clicked} disabled={block}>
@@ -83,7 +86,13 @@ function Week() {
         {month_}
       </TextTransition>
       <text>월</text>
-      <TextTransition springConfig={presets.wobbly}>{week_}</TextTransition>
+      <TextTransition
+        springConfig={presets.wobbly}
+        style={{
+          height: "1vw",
+        }}>
+        {week_}
+      </TextTransition>
       <text>주차</text>
       <button onClick={clicked} disabled={block}>
         ▷
