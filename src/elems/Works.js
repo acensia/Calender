@@ -28,28 +28,37 @@ function List() {
 
   let arr = ["mem1", "mem2"];
   let arr2 = ["Say Hi", "Say Bon jour"];
+  
+  arr.map((name, idx) => {
+      const mem = <div className="work">
+        <div className="memName">{name}</div>
+        <div className="workBox">{arr2[idx]}</div>
+        <div className="workSelect">
+          <button className="workSelector"></button>
+          <button className="workSelector"></button>
+        </div>
+      </div>;
+      setMems((m)=>m.push(mem))
+  })
 
-
-  setMems(arr);
   function addMem(){
-    lists.
+    const newMem =<div className="work">
+      <div className="memName"></div>
+      <div className="workBox"></div>
+      <div className="workSelect">
+        <button className="workSelector"></button>
+        <button className="workSelector"></button>
+      </div>
+    </div>
+    setMems(m=>m.push(newMem))
   }
 
 
   return (
     <div className="list">
       <ul ref={lists}>
-        {arr.map((name, idx) => {
-          return (
-            <div className="work">
-              <div className="memName">{name}</div>
-              <div className="workBox">{arr2[idx]}</div>
-              <div className="workSelect">
-                <button className="workSelector"></button>
-                <button className="workSelector"></button>
-              </div>
-            </div>
-          );
+        {mems.map((com) => {
+          return com
         })}
         <div className="work">
           <div className="memName addMem" onClick={addMem}>+</div>
