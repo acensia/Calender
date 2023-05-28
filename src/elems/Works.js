@@ -19,7 +19,14 @@ function dateParser(d) {
   let week = parseInt((date - day + 5) / 7) + 1;
   return [month, week];
 }
+
+
 ///////////////////////////////////////////////
+function nameWork({id, arr}){
+
+}
+
+
 
 function List() {
   const [mems, setMems] = useState([]);
@@ -27,7 +34,6 @@ function List() {
 
   let arr = ["mem1", "mem2"];
   let arr2 = ["Say Hi", "Say Bon jour"];
-  let temp = [];
   
 
   function addMem(e){
