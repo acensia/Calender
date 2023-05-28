@@ -2,7 +2,6 @@ import TextTransition, { presets } from "react-text-transition";
 import React, { useState } from "react";
 import { useEffect, useRef } from "react";
 import "./elems.css";
-import { click } from "@testing-library/user-event/dist/click";
 
 let today = new Date();
 let [month, week] = dateParser(today);
@@ -28,20 +27,10 @@ function List() {
 
   let arr = ["mem1", "mem2"];
   let arr2 = ["Say Hi", "Say Bon jour"];
+  let temp = [];
   
-  arr.map((name, idx) => {
-      const mem = <div className="work">
-        <div className="memName">{name}</div>
-        <div className="workBox">{arr2[idx]}</div>
-        <div className="workSelect">
-          <button className="workSelector"></button>
-          <button className="workSelector"></button>
-        </div>
-      </div>;
-      setMems((m)=>m.push(mem))
-  })
 
-  function addMem(){
+  function addMem(e){
     const newMem =<div className="work">
       <div className="memName"></div>
       <div className="workBox"></div>
@@ -50,18 +39,25 @@ function List() {
         <button className="workSelector"></button>
       </div>
     </div>
-    setMems(m=>m.push(newMem))
+    // setMems(m=>m.push(newMem))
   }
 
 
   return (
     <div className="list">
       <ul ref={lists}>
-        {mems.map((com) => {
-          return com
-        })}
+        {arr.map((name, idx) => {
+       return <div className="work">
+        <div className="memName">{name}</div>
+        <div className="workBox">{arr2[idx]}</div>
+        <div className="workSelect">
+          <button className="workSelector"></button>
+          <button className="workSelector"></button>
+        </div>
+      </div>;
+  })}
         <div className="work">
-          <div className="memName addMem" onClick={addMem}>+</div>
+          <div className="memName addMem">+</div>
         </div>
       </ul>
     </div>
