@@ -20,7 +20,8 @@ function WorkModal({ modalIsOpen, closeModal, afterOpenModal, props }) {
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Example Modal">
+        contentLabel="Example Modal"
+        closeTimeoutMS={200}>
         <button onClick={closeModal}>close</button>
         <form>
           <div>
