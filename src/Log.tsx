@@ -1,20 +1,22 @@
 import React, { useState, useCallback, ChangeEventHandler } from "react";
 import "./App.css";
+// import { OAuthClient, User } from "@timetreeapp/web-api";
 
 function Log({ logged }) {
   //   const [username, setUsername] = useState("");
   //   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
+  // const [user, setUser] = useState<User | null>();
 
-  const handleSubmit = React.useCallback<
-    React.FormEventHandler<HTMLInputElement>
-  >((e) => {
+  const handleSubmit = React.useCallback((e) => {
     e.preventDefault();
-    setToken(e.currentTarget.value);
-    // Implement your login logic here
+    // const client = new OAuthClient(token);
+    // client.getUser().then((u)=>{
+      
+    // })
     // console.log(username, password);
     logged(true);
-  });
+  }, []);
 
   return (
     <div className="center">
