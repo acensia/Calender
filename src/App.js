@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Works from "./Members/Works";
-import Log from "./Log.tsx";
+import Log from "./timetree_connect/Log.tsx";
 
 function App() {
   const [logged, setLogged] = useState(true);
