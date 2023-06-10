@@ -1,5 +1,5 @@
 import React, { useState, useCallback, ChangeEventHandler } from "react";
-import "./App.css";
+import "../App.css";
 import { OAuthClient } from "@timetreeapp/web-api";
 
 function Log({ logged }) {
@@ -47,4 +47,4 @@ function Log({ logged }) {
   );
 }
 
-export default Log;
+// export default Log;
