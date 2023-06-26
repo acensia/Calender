@@ -10,36 +10,37 @@ function App() {
   };
   const [full, checkFull] = useState(document.fullscreenElement !== null);
 
-  if (logged) return <Log logged={handleLog} />;
-  else
-    return (
-      <div className="App">
-        <header className="Header">Header</header>
-        <div className="MainThree">
-          <div className="Container">
-            <div className="LeftSection">
-              <div className="RectangleBox">
-                <Works />
-              </div>
+  return (
+    <div className="App">
+      <header className="Header">Header</header>
+      <div className="MainThree">
+        <div className="Container">
+          <div className="LeftSection">
+            <div className="RectangleBox">
+              <Works />
             </div>
-            <div className="MiddleSection">
-              <div className="RectangleBox">
-                Mid Section
+          </div>
+          <div className="MiddleSection">
+            <div className="RectangleBox">
+              {logged ? (
+                <Log logged={handleLog} />
+              ) : (
                 <div>
                   {window.innerWidth}, {window.innerHeight} <br />
                   {full ? "It's full" : "It's not full"} <br />
                   {document.fullscreenElement}
                 </div>
-              </div>
-            </div>
-            <div className="RightSection">
-              <div className="RectangleBox">Right Section</div>
+              )}
             </div>
           </div>
+          <div className="RightSection">
+            <div className="RectangleBox">Right Section</div>
+          </div>
         </div>
-        <div className="Under"></div>
       </div>
-    );
+      <div className="Under"></div>
+    </div>
+  );
 }
 
 export default App;
