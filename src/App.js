@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Works from "./Members/Works";
 import Log from "./timetree_connect/Log.tsx";
+import Bot from "./Members/Bot"
 
 function App() {
   const [logged, setLogged] = useState(true);
@@ -39,6 +40,9 @@ function App() {
         </div>
       </div>
       <div className="Under"></div>
+      <div className="chatbot-container">
+        <Bot />
+      </div>
     </div>
   );
 }

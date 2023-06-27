@@ -103,3 +103,10 @@ ul {
 .ReactModal__Overlay--before-close {
   opacity: 0;
 }
+
+.Bot{
+  transition: transform 0.2s ease;
+}
+.Bot:hover{
+  transform: rotate(360deg);
+}
